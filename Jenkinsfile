@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'AGENT-1'}
-    environmnet {
+    environment {
         PROJECT = 'EXPENSE'
         COMPONENT = 'BACKEND'
     }
