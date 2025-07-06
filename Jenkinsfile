@@ -3,6 +3,7 @@ pipeline {
     environment {
         PROJECT = 'EXPENSE'
         COMPONENT = 'BACKEND'
+        DEPLOY_TO = 'QA'
     }
     options {
         disableConcurrentBuilds ()
@@ -50,7 +51,9 @@ pipeline {
             //         string(name: 'PERSON', defaultValue: 'Mr Jenkins', description: 'Who should I say hello to?')
             //     }
             // }
-            when { branch 'main' }
+            when { 
+                environment name: 'DEPLOY_TO', value: 'production'
+                }
             steps {
                 script{
                     sh """
